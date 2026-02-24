@@ -1,0 +1,119 @@
+[gd_scene load_steps=22 format=3 uid="uid://wf7ysd7ci4nu"]
+
+[ext_resource type="Texture2D" uid="uid://djj0sef8572aw" path="res://assets/sprites/robot005.png" id="1_0tl7c"]
+[ext_resource type="Script" uid="uid://nsn8vtbu0dpw" path="res://scenes/entities/enemies/Enemy.gd" id="1_l0oha"]
+[ext_resource type="Texture2D" uid="uid://cti01kt0spclg" path="res://assets/sprites/robot105.png" id="2_4omrv"]
+[ext_resource type="Texture2D" uid="uid://di3nun2tgfyhb" path="res://assets/sprites/robot006.png" id="2_l0oha"]
+[ext_resource type="PackedScene" uid="uid://b30thq4hqog0" path="res://scenes/entities/projectiles/Bolt.tscn" id="2_o6y8c"]
+[ext_resource type="Texture2D" uid="uid://dg82iikioq88o" path="res://assets/sprites/robot007.png" id="3_4omrv"]
+[ext_resource type="Texture2D" uid="uid://biqcbmgyldtch" path="res://assets/sprites/robot106.png" id="3_o6y8c"]
+[ext_resource type="Texture2D" uid="uid://d24adrjfgqpae" path="res://assets/sprites/robot107.png" id="4_6i246"]
+[ext_resource type="Texture2D" uid="uid://s8ft7egbiknm" path="res://assets/sprites/robot000.png" id="7_d2y14"]
+[ext_resource type="Texture2D" uid="uid://bqds6hjc5ystu" path="res://assets/sprites/robot100.png" id="8_aion0"]
+[ext_resource type="Texture2D" uid="uid://dv862kn8oiqrc" path="res://assets/sprites/robot001.png" id="8_sdk1d"]
+[ext_resource type="Texture2D" uid="uid://dsvhyxm7urq1x" path="res://assets/sprites/robot101.png" id="9_d2y14"]
+[ext_resource type="Texture2D" uid="uid://b7n33mi0kb1f7" path="res://assets/sprites/robot002.png" id="9_hlccu"]
+[ext_resource type="Texture2D" uid="uid://xey33utbnh0x" path="res://assets/sprites/robot003.png" id="10_2ghio"]
+[ext_resource type="Texture2D" uid="uid://bf2j3yamon0h8" path="res://assets/sprites/robot102.png" id="10_sdk1d"]
+[ext_resource type="Texture2D" uid="uid://dffwo1n07kqjh" path="res://assets/sprites/robot004.png" id="11_4m0m4"]
+[ext_resource type="Texture2D" uid="uid://bkycdx05rnct" path="res://assets/sprites/robot103.png" id="11_hlccu"]
+[ext_resource type="Texture2D" uid="uid://ytbqbqx0iqb1" path="res://assets/sprites/robot104.png" id="12_2ghio"]
+[ext_resource type="AudioStream" uid="uid://bfkvpxf8hpeeb" path="res://assets/audio/laser0.ogg" id="19_o6y8c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyr1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4omrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o6y8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6i246")
+}],
+"loop": false,
+"name": &"attack_aggressive",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0tl7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l0oha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4omrv")
+}],
+"loop": false,
+"name": &"attack_normal",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_aion0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d2y14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sdk1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hlccu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2ghio")
+}],
+"loop": true,
+"name": &"move_aggresive",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d2y14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sdk1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hlccu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2ghio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4m0m4")
+}],
+"loop": true,
+"name": &"move_normal",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ahm"]
+size = Vector2(34, 73)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_l0oha")
+bolt_scene = ExtResource("2_o6y8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jyr1d")
+animation = &"attack_aggressive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d4ahm")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d4ahm")
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_o6y8c")

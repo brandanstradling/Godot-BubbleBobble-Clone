@@ -1,0 +1,93 @@
+[gd_scene load_steps=16 format=3 uid="uid://msgsim4oe6tq"]
+
+[ext_resource type="Script" uid="uid://dksbmg3d1tcta" path="res://scenes/entities/player/Player.gd" id="1_20ow7"]
+[ext_resource type="Texture2D" uid="uid://6vi0d230b1tw" path="res://assets/sprites/still.png" id="1_rqk8h"]
+[ext_resource type="PackedScene" uid="uid://bs1k0iate0arl" path="res://scenes/entities/projectiles/Bubble.tscn" id="2_6htgn"]
+[ext_resource type="Texture2D" uid="uid://ba8abc2xc64xf" path="res://assets/sprites/run00.png" id="2_20ow7"]
+[ext_resource type="Texture2D" uid="uid://cg77cxg3ggnpy" path="res://assets/sprites/blow0.png" id="2_ujgbh"]
+[ext_resource type="Texture2D" uid="uid://dsl22amfyr0le" path="res://assets/sprites/fall0.png" id="3_6htgn"]
+[ext_resource type="Texture2D" uid="uid://c881odlvvoc0p" path="res://assets/sprites/run01.png" id="3_ujgbh"]
+[ext_resource type="Texture2D" uid="uid://cynkgshkidsbc" path="res://assets/sprites/run02.png" id="4_6htgn"]
+[ext_resource type="Texture2D" uid="uid://bq2axrof3s5gu" path="res://assets/sprites/recoil1.png" id="5_20ow7"]
+[ext_resource type="Texture2D" uid="uid://dvmm2umo3tfpy" path="res://assets/sprites/run03.png" id="5_ovfj8"]
+[ext_resource type="AudioStream" uid="uid://cfj8v2107up7w" path="res://assets/audio/jump0.ogg" id="11_ovfj8"]
+[ext_resource type="AudioStream" uid="uid://dx7ejh2lxslo1" path="res://assets/audio/blow0.ogg" id="12_68iwh"]
+[ext_resource type="AudioStream" uid="uid://ckwls644vh0nl" path="res://assets/audio/ouch0.ogg" id="13_ethid"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61ith"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("2_ujgbh")
+}],
+"loop": false,
+"name": &"blow",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6htgn")
+}],
+"loop": true,
+"name": &"die",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("5_20ow7")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rqk8h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_20ow7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ujgbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6htgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ovfj8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqk8h"]
+size = Vector2(41, 56)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 8
+script = ExtResource("1_20ow7")
+bubble_scene = ExtResource("2_6htgn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_61ith")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 6)
+shape = SubResource("RectangleShape2D_rqk8h")
+
+[node name="SFXJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ovfj8")
+
+[node name="SFXFire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_68iwh")
+
+[node name="SFXHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ethid")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b30thq4hqog0"]
+
+[ext_resource type="Script" uid="uid://bjfo5n7b0e7nf" path="res://scenes/entities/projectiles/Bolt.gd" id="1_anwfy"]
+[ext_resource type="Texture2D" uid="uid://chir87x20q1jw" path="res://assets/sprites/bolt00.png" id="1_vynxm"]
+[ext_resource type="Texture2D" uid="uid://dn13a37a2a0py" path="res://assets/sprites/bolt01.png" id="2_anwfy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge0si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vynxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_anwfy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qta1"]
+radius = 6.0
+
+[node name="Bolt" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_anwfy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ge0si")
+frame = 1
+frame_progress = 0.8021756
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_5qta1")

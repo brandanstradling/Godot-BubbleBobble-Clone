@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvwhqer8yss7w"]
+
+[ext_resource type="Texture2D" uid="uid://b4xxhcw07dy0c" path="res://assets/sprites/ui/over.png" id="1_d5qkl"]
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 0
+texture = ExtResource("1_d5qkl")

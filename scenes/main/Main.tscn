@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://df5usfasbtfx6"]
+
+[ext_resource type="Script" uid="uid://d1sf8pukh2otd" path="res://scenes/main/Main.gd" id="1_u1xfj"]
+[ext_resource type="PackedScene" uid="uid://cpnoxxket63lr" path="res://scenes/screens/Level.tscn" id="3_dc040"]
+[ext_resource type="PackedScene" uid="uid://cawc1ibuvimcy" path="res://scenes/screens/Menu.tscn" id="3_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://bvwhqer8yss7w" path="res://scenes/screens/GameOver.tscn" id="4_dc040"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_u1xfj")
+level_scene = ExtResource("3_dc040")
+
+[node name="LevelRoot" type="Node2D" parent="."]
+
+[node name="Menu" parent="." instance=ExtResource("3_gyg6b")]
+
+[node name="GameOver" parent="." instance=ExtResource("4_dc040")]
+visible = false
