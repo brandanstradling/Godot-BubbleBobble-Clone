@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvwhqer8yss7w"]
+[gd_scene load_steps=5 format=3 uid="uid://bvwhqer8yss7w"]
 
-[ext_resource type="Texture2D" uid="uid://b4xxhcw07dy0c" path="res://assets/sprites/ui/over.png" id="1_d5qkl"]
+[ext_resource type="Texture2D" uid="uid://8c825l3j0lou" path="res://assets_modified/processed/sprites/screen-sheet.png" id="1_ncc6s"]
+[ext_resource type="FontFile" uid="uid://di2k8lkmi5jks" path="res://assets_modified/processed/fonts/dungeonmode/font/dungeon-mode.ttf" id="2_gfpil"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1glg"]
+atlas = ExtResource("1_ncc6s")
+region = Rect2(800, 0, 800, 480)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0e21"]
+font = ExtResource("2_gfpil")
+font_size = 64
+font_color = Color(0.6675727, 0, 0.13529989, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameOver" type="Control"]
 process_mode = 3
@@ -9,4 +21,13 @@ anchors_preset = 0
 
 [node name="Sprite2D" type="TextureRect" parent="."]
 layout_mode = 0
-texture = ExtResource("1_d5qkl")
+texture = SubResource("AtlasTexture_j1glg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 222.0
+offset_right = 782.0
+offset_bottom = 294.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_e0e21")

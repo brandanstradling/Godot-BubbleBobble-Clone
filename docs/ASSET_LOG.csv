@@ -1,0 +1,16 @@
+asset_id,type,origin,tool,source_or_reference,process_summary,iterations,work_minutes,main_issues,godot_import_notes,final_path
+
+blow,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"struggled to get the right sound","~","res://assets_modified/processed/audio/blow.wav"
+jump,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"none","~","res://assets_modified/processed/audio/jump.wav"
+laser,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"struggled to get the right sound","~","res://assets_modified/processed/audio/laser.wav"
+level,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"none","~","res://assets_modified/processed/audio/level.wav"
+ouch,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"none","~","res://assets_modified/processed/audio/ouch.wav"
+pop,sound,personal,ChipTone,"original","tried matching or creating relevant sound",~,~,"struggled to get the right sound","~","res://assets_modified/processed/audio/pop.wav"
+theme,sound,found,N/A,"Itch.io","N/A",0,0,"none","none","res://assets_modified/processed/audio/theme.wav"
+
+dungeon-mode,font,found,N/A,"Itch.io","N/A",0,0,"none","none","res://assets_modified/processed/fonts/dungeonmode/font.ttf"
+
+player_sheet,sprite_sheet,personal,Aseprite,"original","simple generic figure, matched old frames",~,~,"keeping proportions consistent","~","res://assets_modified/processed/player-sheet.png"
+
+
+
