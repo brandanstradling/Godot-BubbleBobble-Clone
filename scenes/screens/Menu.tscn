@@ -1,24 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://cawc1ibuvimcy"]
+[gd_scene load_steps=13 format=3 uid="uid://cawc1ibuvimcy"]
 
-[ext_resource type="Texture2D" uid="uid://8c825l3j0lou" path="res://assets_modified/processed/sprites/screen-sheet.png" id="1_5mame"]
-[ext_resource type="FontFile" uid="uid://di2k8lkmi5jks" path="res://assets_modified/processed/fonts/dungeonmode/font/dungeon-mode.ttf" id="2_ab0fm"]
+[ext_resource type="Texture2D" uid="uid://bx6202xcwccqy" path="res://assets/sprites/ui/title.png" id="1_d0hhf"]
+[ext_resource type="Texture2D" uid="uid://cyvbcvrwo6ayi" path="res://assets/sprites/ui/space0.png" id="2_1gb5i"]
+[ext_resource type="Texture2D" uid="uid://cmdhywyo2a4sr" path="res://assets/sprites/ui/space1.png" id="3_drf14"]
+[ext_resource type="Texture2D" uid="uid://cnikqmma82i23" path="res://assets/sprites/ui/space2.png" id="4_4jcmw"]
+[ext_resource type="Texture2D" uid="uid://c2kh5ovv04p4d" path="res://assets/sprites/ui/space3.png" id="5_y585k"]
+[ext_resource type="Texture2D" uid="uid://b02ouxcnyu1ar" path="res://assets/sprites/ui/space4.png" id="6_c86ps"]
+[ext_resource type="Texture2D" uid="uid://de2rdd3gv3vtt" path="res://assets/sprites/ui/space5.png" id="7_gbk3k"]
+[ext_resource type="Texture2D" uid="uid://bq520sag623ct" path="res://assets/sprites/ui/space6.png" id="8_jqv7c"]
+[ext_resource type="Texture2D" uid="uid://cevrep8k8u0w1" path="res://assets/sprites/ui/space7.png" id="9_p04pq"]
+[ext_resource type="Texture2D" uid="uid://pouq40lbrrlv" path="res://assets/sprites/ui/space8.png" id="10_e61wl"]
+[ext_resource type="Texture2D" uid="uid://b8bn8jaodin5a" path="res://assets/sprites/ui/space9.png" id="11_u4b30"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yg3yf"]
-atlas = ExtResource("1_5mame")
-region = Rect2(0, 0, 800, 480)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ynbj8"]
-font = ExtResource("2_ab0fm")
-font_size = 100
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qh06c"]
-font = ExtResource("2_ab0fm")
-font_size = 32
-font_color = Color(0.40880403, 0.9999998, 0.3410296, 1)
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqn1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1gb5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_drf14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4jcmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y585k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c86ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gbk3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jqv7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p04pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e61wl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u4b30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -26,24 +56,9 @@ anchors_preset = 0
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
-texture = SubResource("AtlasTexture_yg3yf")
+texture = ExtResource("1_d0hhf")
 
-[node name="Label" type="Label" parent="Title"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 152.0
-offset_right = 740.0
-offset_bottom = 266.0
-text = "CAVERN"
-label_settings = SubResource("LabelSettings_ynbj8")
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 243.0
-offset_top = 261.0
-offset_right = 556.0
-offset_bottom = 290.0
-text = "Press Start"
-label_settings = SubResource("LabelSettings_qh06c")
-horizontal_alignment = 1
+[node name="StartText" type="AnimatedSprite2D" parent="."]
+position = Vector2(400, 332)
+sprite_frames = SubResource("SpriteFrames_pqn1x")
+frame_progress = 0.96961236

@@ -1,24 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b30thq4hqog0"]
+[gd_scene load_steps=6 format=3 uid="uid://b30thq4hqog0"]
 
 [ext_resource type="Script" uid="uid://bjfo5n7b0e7nf" path="res://scenes/entities/projectiles/Bolt.gd" id="1_anwfy"]
-[ext_resource type="Texture2D" uid="uid://be0j0c4v6rx00" path="res://assets_modified/processed/sprites/bolt-sheet.png" id="2_vynxm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anwfy"]
-atlas = ExtResource("2_vynxm")
-region = Rect2(0, 0, 50, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge0si"]
-atlas = ExtResource("2_vynxm")
-region = Rect2(50, 0, 50, 32)
+[ext_resource type="Texture2D" uid="uid://chir87x20q1jw" path="res://assets/sprites/bolt00.png" id="1_vynxm"]
+[ext_resource type="Texture2D" uid="uid://dn13a37a2a0py" path="res://assets/sprites/bolt01.png" id="2_anwfy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge0si"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_anwfy")
+"texture": ExtResource("1_vynxm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ge0si")
+"texture": ExtResource("2_anwfy")
 }],
 "loop": true,
 "name": &"default",
@@ -34,9 +27,10 @@ collision_mask = 13
 script = ExtResource("1_anwfy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, 5)
+position = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ge0si")
-frame_progress = 0.7163125
+frame = 1
+frame_progress = 0.8021756
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
